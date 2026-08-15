@@ -1,42 +1,116 @@
-Customer Churn Prediction for Telecom Industry
-📌 Overview
+# 📊 Customer Churn Prediction using Machine Learning
 
-A machine learning classification project that predicts whether a telecom customer is likely to churn (leave the service), using ensemble models and SMOTE for handling class imbalance.
+## 📌 Project Description
+Customer churn prediction is a supervised machine learning project aimed at identifying whether a customer is likely to discontinue a service.  
+This project uses the **Telco Customer Churn Dataset** to build an end-to-end machine learning pipeline, starting from raw data preprocessing to building a predictive system.
 
-🎯 Problem Statement
+The project includes:
+- Data cleaning and preprocessing
+- Exploratory Data Analysis (EDA)
+- Handling class imbalance using SMOTE
+- Training and comparing multiple ML models
+- Selecting the best model
+- Saving and loading the trained model
+- Making predictions on new customer data
 
-Customer churn directly impacts revenue for subscription-based businesses. This project builds a model to proactively identify customers at risk of churning, so retention efforts can be targeted effectively.
 
-🗂️ Dataset
-WA_Fn-UseC_-Telco-Customer-Churn.csv — customer demographic, account, and service usage data with a binary Churn target
-🛠️ Tech Stack
-Python
-Pandas, NumPy
-Matplotlib, Seaborn — visualization
-Scikit-learn — Decision Tree, Random Forest, model evaluation
-Imbalanced-learn (SMOTE) — class balancing
-Pickle — model serialization
-🔍 Approach
-Data Cleaning — Removed non-predictive customerID column, handled blank/missing values in TotalCharges
-Exploratory Data Analysis — Analyzed numerical feature distributions (histograms, boxplots) and categorical feature counts, plus a correlation heatmap
-Encoding — Label-encoded the target and all categorical features, saving encoders for consistent inference later
-Handling Class Imbalance — Applied SMOTE to the training set to balance churned vs. non-churned classes
-Model Selection — Compared Decision Tree, Random Forest, and XGBoost using 5-fold cross-validation; selected Random Forest as the best performer
-Model Evaluation — Assessed final model using Accuracy, Confusion Matrix, and Classification Report on held-out test data
-Predictive System — Serialized the trained model and encoders with Pickle for reuse on new customer data
-📊 Results
-Random Forest outperformed Decision Tree and XGBoost on cross-validated accuracy
-Built a reusable inference pipeline that loads the saved model/encoders and predicts churn for new customer records
-🚀 How to Run
-bash
-git clone <repo-link>
-cd customer-churn-prediction
-pip install pandas numpy matplotlib seaborn scikit-learn imbalanced-learn xgboost
-jupyter notebook Customer_Churn_Prediction.ipynb
-🔮 Future Improvements
-Hyperparameter tuning (GridSearchCV/RandomizedSearchCV) for the Random Forest model
-Add feature importance analysis to explain key churn drivers
-Deploy as a Streamlit app for interactive churn prediction
-👤 Author
+## 🎯 Objective
+- Predict customer churn accurately
+- Understand factors influencing customer churn
+- Compare different machine learning models
+- Build a reusable churn prediction system
 
-Diksha Pandey.
+
+## 📂 Dataset Information
+- **Dataset:** Telco Customer Churn Dataset
+- **Total Records:** 7043
+- **Target Variable:** `Churn`
+  - `1` → Customer churned
+  - `0` → Customer retained
+
+
+## 🛠️ Technologies & Libraries Used
+- Python
+- NumPy
+- Pandas
+- Matplotlib
+- Seaborn
+- Scikit-learn
+- Imbalanced-learn (SMOTE)
+- Pickle
+- XGBoost
+- Random Forest Classifier
+- Decision Tree
+
+## 🔁 Project Workflow
+
+### 1️⃣ Data Loading
+- CSV file loaded using Pandas
+- Dataset shape and structure explored
+
+### 2️⃣ Data Cleaning
+- Dropped unnecessary column (`customerID`)
+- Converted `TotalCharges` from string to numeric
+- Handled missing and blank values
+
+### 3️⃣ Exploratory Data Analysis (EDA)
+- Distribution analysis using histograms
+- Outlier detection using box plots
+- Correlation analysis using heatmaps
+- Count plots for categorical features
+
+### 4️⃣ Target Encoding
+- Converted `Churn` column:
+  - `Yes → 1`
+  - `No → 0`
+
+### 5️⃣ Feature Encoding
+- Applied **Label Encoding** on categorical variables
+- Saved encoders using Pickle for future predictions
+
+### 6️⃣ Handling Class Imbalance
+- Used **SMOTE (Synthetic Minority Over-sampling Technique)**
+- Balanced churn and non-churn classes in training data
+
+### 7️⃣ Train-Test Split
+- Dataset split into 80% training and 20% testing data
+
+
+## 🤖 Machine Learning Models Used
+
+| Model | Description |
+|-----|------------|
+| Decision Tree Classifier | Rule-based model |
+| Random Forest Classifier | Ensemble learning model |
+| XGBoost Random Forest | Boosted ensemble model |
+
+
+## 📊 Model Evaluation
+- 5-fold cross-validation performed
+- Evaluation metrics used:
+  - Accuracy Score
+  - Confusion Matrix
+  - Classification Report (Precision, Recall, F1-score)
+
+### ✅ Best Model Selected
+**Random Forest Classifier**  
+Chosen due to better performance and generalization.
+
+
+## 📌 How to Run the Project
+
+1. Clone or download the project
+2. Install required libraries
+3. Open the google collab Notebook
+4. Run cells sequentially
+5. Train models and evaluate results
+6. Use the predictive system for new customer data
+
+
+## 👩‍💻 Author
+**Diksha Pandey**  
+Machine Learning Project
+
+## 🏁 Conclusion
+This project demonstrates a complete machine learning pipeline for customer churn prediction.  
+
